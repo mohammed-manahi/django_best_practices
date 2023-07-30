@@ -9,3 +9,9 @@
 	* Avoid using import *, import only needed modules, classes or methods.
     * Avoid naming collision of modules, use aliases to overcome the collision.
     * Use hyphens for URL patterns and underscores for URL pattern names.
+
+* Django Environment Setup:
+   * PostgreSQL is the preferred database to work with in development and production environments.
+   * Use virtual environment for Django projects.
+   * The recommended installation of Django is to use pip and requirements file.
+   * Use Docker to unify local development environments for everyone. 
