@@ -52,3 +52,14 @@
       * Use choices and sub-choices model constants. 
       * Using custom model manager: when using custom model manager always set default model manager on top and then the custom model manager.
       * Keep fat models, thin views and use helper functions.
+
+* Django's ORM:
+   * Use get_object_or_404() instead of get() when querying single object and beware that it only works for views.
+   * Do not use try-except block with get_object_or_404() because it already does that.
+   * ObjectDoesNotExist can be applied to any model object while DoesNotExist is for a specific model.
+   * When expecting one object but the query return more than one, check for MultipleObjectsReturned exception.
+   * Try to avoid chaining too much functionalities when querying ORM, instead break complex query into multiple simple query and combine them together.
+   * The Q function in Django's ORM provides logical expressions between conditions, while the F function allows to refer to a model field's value and use it in database queries.
+   * Avoid raw SQL statements until it is necessary.
+   * Add indexes as need in the meta class of the model.
+   * Use ORM transactions when two or more database operations are contained in a single unit of work.
