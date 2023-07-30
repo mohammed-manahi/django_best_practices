@@ -14,4 +14,15 @@
    * PostgreSQL is the preferred database to work with in development and production environments.
    * Use virtual environment for Django projects.
    * The recommended installation of Django is to use pip and requirements file.
-   * Use Docker to unify local development environments for everyone. 
+   * Use Docker to unify local development environments for everyone when the team uses multiple operating systems and configuration environments. 
+
+* Project Layout Configuration:
+   * The preferred project layout is to place a root directory and inside it <configuration_root> and <django_project_root>.
+   * Avoid including virtual environment directory to GitHub repository.
+   * Save Python package usages into requirements file (pip freeze > requirements.txt).
+   * Cookiecutter can be used for advanced project setup and boilerplate code creation.
+
+* Fundamentals of Django App Design:
+   * The philosophy of app design in Django is that "each app should be tightly focused on its task" which implies that the app has to do one thing and do it well.
+   * App naming convention preference is to keep app name a single word, all in lowercase and the name should be plural expect for certain cases.
+   * It is better to have many small apps than to have a few giant apps.
