@@ -33,3 +33,22 @@
    * Each settings module should have its own corresponding requirements file with identical name to settings file name inside requirements directory.
    * Run commands for specific settings configuration, for example to run server for local settings: python manage.py runserver --settings=config.settings.local.
    * The official Django documentation encourages django-admin rather than manage.py when working with multiple settings files.
+
+* Model Best Practices:
+   * The ideal number of models in an app is five to 10 models.
+   * Django provides three ways to do model inheritance: abstract base classes, multi-table inheritance, and proxy models.
+   * Abstract base classes: tables are only created for derived models.
+   * Multi-table inheritance: tables are created for both parent and child. An implied OneToOneField links parent and child.
+   * Proxy models: a table is only created for the original model.
+   * It is recommended to avoid Multi-table inheritance since it adds both confusion and substantial overhead.
+   * Custom model managers are excluded by default by Django migrations, to include custom managers the following statement should be set in the custom manager: "use_in_migrations = True".
+   * Custom model's save and delete methods won't be called when called by RunPython.
+   * It is recommended to always back up your data before running a migration.
+   * It is recommended to include migrations directory in VCS to be version-controlled.
+   * Model design principles:
+      * Setting null and blank options: null is database-related field option while blank is related to Django forms.
+      * Using BinaryField: BinaryField is for raw data such as raw sensor data, it may affect database performance and can be replaced with FileField when it becomes a bottleneck.
+      * Try to avoid using Generic Relations: Generic Relations are usually more trouble than they are worth.
+      * Use choices and sub-choices model constants. 
+      * Using custom model manager: when using custom model manager always set default model manager on top and then the custom model manager.
+      * Keep fat models, thin views and use helper functions.
