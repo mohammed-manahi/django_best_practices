@@ -26,3 +26,10 @@
    * The philosophy of app design in Django is that "each app should be tightly focused on its task" which implies that the app has to do one thing and do it well.
    * App naming convention preference is to keep app name a single word, all in lowercase and the name should be plural expect for certain cases.
    * It is better to have many small apps than to have a few giant apps.
+
+* Settings and Requirements File Configurations:
+   * All settings files need to be version-controlled using a VCS except for secret keys and API credentials. 
+   * Use multiple settings files for base, local, staging, testing, and production environments in a settings directory.
+   * Each settings module should have its own corresponding requirements file with identical name to settings file name inside requirements directory.
+   * Run commands for specific settings configuration, for example to run server for local settings: python manage.py runserver --settings=config.settings.local.
+   * The official Django documentation encourages django-admin rather than manage.py when working with multiple settings files.
