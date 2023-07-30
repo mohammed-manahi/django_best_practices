@@ -63,3 +63,20 @@
    * Avoid raw SQL statements until it is necessary.
    * Add indexes as need in the meta class of the model.
    * Use ORM transactions when two or more database operations are contained in a single unit of work.
+
+* Function And Class-Based Views:
+   * The class-based views are more recommended to use except for custom error views or complicated ones in which function-based views are better.
+   * Keep URLConf and views loosely coupled by avoiding logic inside URLConfs.
+   * Use namespaces in URLConf for views.
+   * Avoid using locals() as a view context since it makes the context of the view vague.
+
+* Function-Based Views' Best Practices:
+   * The function-based views are simpler to work with, yet it provides less code reusability.
+   * Avoid nested complex if-blocks as possible.
+   * Use decorators using functools.wraps() when needed to avoid obfuscation.
+
+* Class-Based Views' Best Practices:
+   * Class-based views use as_view() class method to return the callable view.
+   * Use Mixins with class-based views: When using Mixins in Django class-based views, the base view classes always go the right in the method declaration and Mixins to the left.
+   * The most common General class-Based Views (GCBV) are TemplateView, ListView, DetailView, FormView, CreateView, UpdateView, and DeleteView.
+   * Use the view object itself to provide access to properties and methods that can be called by other methods and properties.
