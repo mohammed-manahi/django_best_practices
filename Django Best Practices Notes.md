@@ -70,13 +70,27 @@
    * Use namespaces in URLConf for views.
    * Avoid using locals() as a view context since it makes the context of the view vague.
 
-* Function-Based Views' Best Practices:
+* Function-Based Views Best Practices:
    * The function-based views are simpler to work with, yet it provides less code reusability.
    * Avoid nested complex if-blocks as possible.
    * Use decorators using functools.wraps() when needed to avoid obfuscation.
 
-* Class-Based Views' Best Practices:
+* Class-Based Views Best Practices:
    * Class-based views use as_view() class method to return the callable view.
    * Use Mixins with class-based views: When using Mixins in Django class-based views, the base view classes always go the right in the method declaration and Mixins to the left.
    * The most common General class-Based Views (GCBV) are TemplateView, ListView, DetailView, FormView, CreateView, UpdateView, and DeleteView.
    * Use the view object itself to provide access to properties and methods that can be called by other methods and properties.
+
+* Forms Best Practices:
+   * Always use CSRF protection with HTTP forms that modify data. 
+   * Use clean(), clean_<field_name>() and save() to have additional form instance attributes.
+
+* Templates Best Practices:
+   * Keep templates mostly in templates directory.
+   * Do not write logic that perform operations in database layer inside the template, instead write it in the views and send it simplified to the templates. 
+
+* Django REST Framework:
+   * Django REST Framework supports function-based views and class-based view, however it is more common to use class-based views.
+   * Place all API components into a package within an app in a directory called api/.
+   * It is a good practice to abbreviate the urls of an API with the version number.
+   * It is a good practice to use rate limiting in a REST API.
